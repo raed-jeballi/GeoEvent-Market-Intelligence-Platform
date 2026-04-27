@@ -1,0 +1,23 @@
+# Warehouse
+# Database 
+duckdb==1.4.0
+
+# dbt
+dbt-core==1.8.0
+dbt-duckdb==1.9.0  
+
+# Scraping
+scrapy==2.11.2
+playwright==1.47.0
+
+# API / Data
+requests==2.32.3
+pandas==2.2.3
+python-dotenv==1.0.1
+
+# Utils
+loguru==0.7.2
+pydantic==2.9.2
+
+# Finance
+yfinance==0.2.43
