@@ -11,27 +11,26 @@ CREATE SCHEMA IF NOT EXISTS raw;
 -- --------------------------------------------
 CREATE TABLE IF NOT EXISTS raw.raw_events (
     event_id                VARCHAR PRIMARY KEY,
-    event_date              DATE NOT NULL,
-    event_timestamp         TIMESTAMP NOT NULL,
-    event_root_code         VARCHAR,
-    event_base_code         VARCHAR,
+    event_date              DATE,
+    event_timestamp         TIMESTAMP,
     event_code              VARCHAR,
+    event_base_code         VARCHAR,
+    event_root_code         VARCHAR,
     goldstein_scale         DOUBLE,
-    avg_tone                DOUBLE,
     num_mentions            INTEGER,
     num_articles            INTEGER,
+    avg_tone                DOUBLE,
     actor1_code             VARCHAR,
     actor1_name             VARCHAR,
     actor2_code             VARCHAR,
     actor2_name             VARCHAR,
     action_geo_country_code VARCHAR,
-    action_geo_country_name VARCHAR,
     action_geo_lat          DOUBLE,
     action_geo_long         DOUBLE,
     source_url              VARCHAR,
     source_domain           VARCHAR,
-    ingestion_timestamp     TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    batch_id                VARCHAR NOT NULL
+    ingestion_timestamp     TIMESTAMP,
+    batch_id                VARCHAR
 );
 
 -- --------------------------------------------
