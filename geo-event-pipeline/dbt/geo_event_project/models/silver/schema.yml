@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: clean_events
+    description: "Cleaned GDELT events with proper types and deduplication"
+    columns:
+      - name: event_id
+        description: "Unique event identifier from GDELT"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: event_timestamp
+        description: "UTC timestamp of when GDELT added the event"
+        data_tests:
+          - not_null
+
+      - name: goldstein_scale
+        description: "Impact score (-10 to +10)"
+
+      - name: avg_tone
+        description: "Sentiment score (-100 to +100)"
+
+      - name: is_domain_missing
+        description: "True if source_domain could not be extracted"
+
+  - name: clean_prices
+    description: "Cleaned commodity prices with proper types and flags"
+    columns:
+      - name: price_id
+        description: "Synthetic key: ticker_timestamp"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: commodity_code
+        description: "Yahoo Finance ticker"
+        data_tests:
+          - not_null
+
+      - name: timestamp
+        description: "UTC timestamp of price observation"
+        data_tests:
+          - not_null
+
+      - name: close
+        description: "Closing price"
+
+      - name: interval
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['1m', '5m', '1h']
